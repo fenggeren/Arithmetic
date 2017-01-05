@@ -33,6 +33,8 @@ protected:
     void mergeSort(Rank lo, Rank hi);
     
     Rank partition(Rank lo, Rank hi); // 轴点构造算法
+    Rank partitionA(Rank lo, Rank hi); // 轴点构造算法
+    Rank partitionA1(Rank lo, Rank hi); // 轴点构造算法
     void quickSort(Rank lo, Rank hi);
     void heapSort(Rank lo, Rank hi);
     

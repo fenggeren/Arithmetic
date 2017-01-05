@@ -8,6 +8,7 @@
 
 #include "Vector.hpp"
 #include <ios>
+#include <stdlib.h>
 
 template <typename T>
 void Vector<T>::copyFrom(T const* A, Rank lo, Rank hi)
@@ -157,6 +158,102 @@ void Vector<T>::merge_optimized( Rank lo, Rank mi, Rank hi ) //归并优化算�
     }
     delete [] left;
 }
+
+template<typename T>  // [lo, hi)
+void Vector<T>::quickSort(Rank lo, Rank hi)
+{
+    if (hi - lo < 2) return; // 单元素区间自然有序
+    Rank mi = partition(lo, hi); // mi位置一定是最终的排序位置
+    quickSort(lo, mi);  // [lo, mi)
+    quickSort(mi + 1, hi); // [mi+1, hi)
+}
+
+template<typename T>
+Rank Vector<T>::partitionA1(Rank lo, Rank hi)
+{
+    std::swap(_elem[lo], _elem[lo + rand() % (hi - lo + 1)]);
+    T pivot = _elem[lo];
+    
+    while (lo < hi) {
+        while (lo < hi) {
+            if (pivot < _elem[hi]) {
+                hi--;
+            } else {
+                _elem[lo++] = _elem[hi]; // hi 值挪到lo处 即privot处, 然后lo++, 而privot 指向了hi
+                break;
+            }
+        }
+        
+        while (lo < hi) {
+            if (_elem[lo] < pivot) {
+                lo++;
+            } else {
+                _elem[hi--] = _elem[lo]; // privot 指向了 lo
+                break;
+            }
+        }
+    }
+    _elem[lo] = pivot;
+    return lo;
+}
+
+
+template<typename T>
+Rank Vector<T>::partitionA(Rank lo, Rank hi)
+{
+    std::swap(_elem[lo], _elem[lo + rand() % (hi - lo + 1)]);
+    T pivot = _elem[lo];
+    
+    while (lo < hi) {
+        while (lo < hi && pivot <= _elem[hi]) {
+            hi--;
+        }
+        if(lo < hi) _elem[lo++] = _elem[hi];
+        
+        while (lo < hi && _elem[lo] <= pivot) {
+            lo++;
+        }
+        if (lo < hi) _elem[hi--] = _elem[lo];
+    }
+    _elem[lo] = pivot;
+    return lo;
+}
+
+
+template<typename T>
+Rank Vector<T>::partition(Rank lo, Rank hi)
+{
+    std::swap(_elem[lo], _elem[lo + rand() % (hi - lo + 1)]);
+    T pivot = _elem[lo];
+    
+    Rank mi = lo;
+    for (Rank k = lo + 1; k < hi; ++k) {
+        if (_elem[k] < pivot) {
+            std::swap(_elem[++mi], _elem[k]);
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
