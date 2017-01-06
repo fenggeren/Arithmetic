@@ -8,10 +8,24 @@
 
 #include <iostream>
 #include <ios>
+#include "Fibonacci.hpp"
+
+int getInt(int a, int b)
+{
+    static int i = 0;
+    std::cout << "--------" << i++ << "-------" << std::endl;
+    return a + b;
+}
 
 int main(int argc, const char * argv[]) {
     // insert code here...
     
-    std::cout << "Hello, World!\n";
+//    Fib fib(100);
+//    std::cout << fib.get() << std::endl;
+    
+    for (int i = 0; i < getInt(10, 20); ++i) {
+        ;
+    }
+    
     return 0;
 }

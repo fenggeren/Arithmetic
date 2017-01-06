@@ -9,6 +9,7 @@
 #include "Vector.hpp"
 #include <ios>
 #include <stdlib.h>
+#include "Fibonacci.hpp"
 
 template <typename T>
 void Vector<T>::copyFrom(T const* A, Rank lo, Rank hi)
@@ -225,29 +226,233 @@ Rank Vector<T>::partition(Rank lo, Rank hi)
 {
     std::swap(_elem[lo], _elem[lo + rand() % (hi - lo + 1)]);
     T pivot = _elem[lo];
-    
-    Rank mi = lo;
+                              //  |   < pivot  |    > pivot   | unvisited|
+    Rank mi = lo; // [lo, hi)   lo|------------mi-------------k-----------|hi
     for (Rank k = lo + 1; k < hi; ++k) {
         if (_elem[k] < pivot) {
             std::swap(_elem[++mi], _elem[k]);
         }
     }
+    std::swap(_elem[mi], _elem[lo]);
+}
+
+template<typename T>
+Rank Vector<T>::disordered() const
+{
+    Rank count = 0;
+    for (Rank i = 1; i < _size; ++i) {
+        if (_elem[i - 1] > _elem[i]) {
+            ++count;
+        }
+    }
+    return count;
+}
+
+#pragma mark - 查找 
+
+#pragma mark 无序查找
+template<typename T>
+Rank Vector<T>::find ( T const& e, Rank lo, Rank hi ) const
+{
+    while (lo < hi-- && _elem[hi] != e);
+    return hi;
+}
+
+#pragma mark 有序查找
+template<typename T>
+Rank Vector<T>::search ( T const& e, Rank lo, Rank hi ) const
+{
+
+}
+
+// 没有 返回 -1
+template<typename T>
+Rank Vector<T>::search_binary_a(T const& e, Rank lo, Rank hi) const
+{
+    while (lo < hi) {
+        Rank mi = (hi - lo) >> 1;
+        if (e < _elem[mi]) hi = mi;
+        else if (e > _elem[mi]) lo = mi + 1;
+        else return mi;
+    }
+    return -1;
+}
+// 没有 返回 -1
+template<typename T>
+Rank Vector<T>::search_binary_b(T const& e, Rank lo, Rank hi) const
+{
+    while (lo + 1 < hi) { // 少一个判断分支 不能立即判断是否有改元素只能到最后判定
+        Rank mi = (hi - lo) >> 1;
+        (e < _elem[mi]) ? hi = mi : lo = mi;
+    }
+    return _elem[lo] == e ? lo : -1; // 最终lo,hi 之间剩余一个元素， 然后进行判断
+}
+
+// // 没有 返回失败的秩 而不是-1
+template<typename T>
+Rank Vector<T>::search_binary_c(T const& e, Rank lo, Rank hi) const
+{
+    while (lo < hi) {
+        Rank mi = (hi - lo) >> 1;
+         // [lo mi) (mi, hi)。 如果 _elem[mi]==e  那么会一直循环判断,
+        // 这时候lo 是不变的，hi一直在改变, 所以最后可以判断 最终结果，
+        (e < _elem[mi]) ? hi = mi : lo = mi + 1;
+    }
+    return --lo;
+}
+
+// 完美分割比例
+template<typename T>  // [0, _size)
+Rank Vector<T>::search_fibonaccian_a(T const& e, Rank lo, Rank hi) const
+{
+    Fib fib(hi - lo);
+    //  |-lo--------|fib|---hi-|
+    while (lo < hi) {
+        // 选个最接近fib的数字如fib(12)=144, 而hi-lo=100，
+        // 选择 那么fib.get() = fib(11) = 89          0       89-1    100
+        //                                      结构 |lo-----fib---hi|
+        while (hi - lo < fib.get()) {
+            fib.prev();
+        }
+        Rank mi = lo + fib.get() - 1;
+        if (e < _elem[mi]) hi = mi;
+        else if (_elem[mi] > e) lo = mi;
+        else return mi;
+    }
+    return -1;
+}
+
+template<typename T>
+Rank Vector<T>::search_fibonaccian_b(T const& e, Rank lo, Rank hi) const
+{
+    Fib fib(hi - lo);
+    while (lo < hi) {
+        while (hi - lo < fib.get()) {
+            fib.prev();
+        }
+        Rank mi = lo + fib.get() - 1;
+        ( e < _elem[mi]) ? hi = mi : lo = mi + 1;   // [lo, mi) (mi, hi)
+    }
+    return --lo;
 }
 
 
+template<typename T>
+T& Vector<T>::operator[](Rank r) const
+{
+    return _elem[r];
+}
+
+template<typename T>
+T Vector<T>::remove(Rank r)
+{
+    T tmp = _elem[r];
+    remove(r, r + 1);
+    return tmp;
+}
 
 
+template<typename T>
+Rank Vector<T>::remove(Rank lo, Rank hi)
+{
+    if (hi <= lo) return 0;
+    while (hi < _size) {
+        _elem[lo++] = _elem[hi++];
+    }
+    _size = lo;
+    shrink();
+    return hi - lo;
+}
 
+template<typename T>
+Rank Vector<T>::insert(Rank r, const T &e)
+{
+    expand();
+    Rank size = _size++;
+    while (size-- > r) {
+        _elem[size + 1] = _elem[size];
+    }
+    _elem[r] = e;
+    return r;
+}
 
+template<typename T>
+void Vector<T>::unsort(Rank lo, Rank hi)
+{
+    T *ele = _elem + lo;
+    for (Rank i = hi - lo; i > 0; --i) {
+        std::swap(_elem[i], _elem[rand() % i]);
+    }
+}
 
+template<typename T>
+Rank Vector<T>::deduplicate()
+{
+    Rank oldSize = _size;
+    for (Rank i = 1; i < _size; ++i) {
+        for (Rank j = i - 1; j >= 0; --j) {
+            if (_elem[i] == _elem[j]) {
+                remove(j); break;
+            }
+        }
+    }
+    
+//    Rank trav = 1;
+//    while (trav < _size) {
+//        find(_elem[trav], 0, trav) < 0 ? trav++ : remove(trav);
+//    }
+    
+    return oldSize - _size;
+}
 
+template<typename T>
+Rank Vector<T>::deduplicate_a()
+{
+    Rank oldSize = _size;
+    Rank i = -1;
+    while (++i < _size - 1) {
+        for (Rank j = i + 1; j < _size;) {
+            _elem[i] == _elem[j] ? remove(j) : j++;
+        }
+    }
+    return oldSize - _size;
+}
 
+// 不进行移除操作， i遍历向量下表，[0,k)无重复区间, [i,hi)为遍历区间  [k, i)重复区间
+// i元素和[0,k)不重复，将i赋值给k 始终保证[0, k)不重复
+//              |----k-------------i--------------|
+template<typename T>
+Rank Vector<T>::deduplicate_b()
+{
+    Rank k = 1;
+    for (Rank i = 1; i < _size; ++i) {
+        bool duplicate = false;
+        for (Rank j = k - 1; j >= 0; --j) {
+            if (_elem[i] == _elem[j]) {
+                duplicate = true; break;
+            }
+        }
+        if (!duplicate) {
+            _elem[k++] = _elem[i];
+        }
+    }
+    Rank num = _size - k;
+    _size = k; shrink();
+    return num;
+}
 
-
-
-
-
-
+template<typename T>
+Rank Vector<T>::uniquify()
+{
+    // |---k----i---|    [lo, k] [k, i) [i, hi)
+    Rank i = 0, k = 0;
+    while (++i < _size) {
+        if (_elem[i] != _elem[k])  _elem[++k] = _elem[i];
+    }
+    Rank num = _size - k - 1;
+    _size -= num; shrink();
+    return num;
+}
 
 
 

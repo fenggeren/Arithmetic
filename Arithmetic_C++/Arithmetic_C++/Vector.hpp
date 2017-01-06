@@ -55,7 +55,7 @@ public:
     // @readonly
     Rank size() const { return _size; }
     bool empty() const { return !_size; }
-    int disordered() const; // 是否已排序， 返回两两非排序数量
+    Rank disordered() const; // 是否已排序， 返回两两非排序数量
     // 无需向量查找
     Rank find(T const& e) const { return find(e, 0, _size); };
     Rank find(T const& e, Rank lo, Rank hi) const;
@@ -65,12 +65,16 @@ public:
         return (0 >= _size) ? -1 : search(e, 0, _size);
     }
     Rank search(T const& e, Rank lo, Rank hi) const;
-    
+    Rank search_binary_a(T const& e, Rank lo, Rank hi) const;
+    Rank search_binary_b(T const& e, Rank lo, Rank hi) const;
+    Rank search_binary_c(T const& e, Rank lo, Rank hi) const;
+    Rank search_fibonaccian_a(T const& e, Rank lo, Rank hi) const;
+    Rank search_fibonaccian_b(T const& e, Rank lo, Rank hi) const;
     // @readwrite
     T& operator[] (Rank r) const;
     Vector<T> & operator= (Vector<T> const& );
     T remove(Rank r);
-    int remove( Rank lo, Rank hi);
+    Rank remove( Rank lo, Rank hi);
     Rank insert( Rank r, T const& e);
     Rank insert(T const& e) { return insert(_size, e); }
     void sort(Rank lo, Rank hi);
@@ -78,8 +82,10 @@ public:
     void unsort(Rank lo, Rank hi);
     void unsort() { unsort(0, _size); }
     
-    int deduplicate();  // 无须去重
-    int uniquify(); // 有序去重
+    Rank deduplicate();  // 无须去重
+    Rank deduplicate_a();
+    Rank deduplicate_b();
+    Rank uniquify(); // 有序去重
     
     // 遍历
     void traverse( void(*) (T&)); // 使用函数指针，只读或局部性修改
