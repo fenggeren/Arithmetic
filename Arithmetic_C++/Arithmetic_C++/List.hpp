@@ -88,10 +88,13 @@ public:
     void sort() { sort(first(), _size); }
     
     
-    Rank deduplicate();
-    Rank uniquify();
-    void reverse();
-    
+    Rank deduplicate();  // 无序去重
+    Rank deduplicate_a();
+    Rank uniquify();     // 有序去重
+    void reverse();  // 反转
+    void reverse_a();
+    void reverse_b();
+    void reverse_c();
     void traverse(void (*)( T &));
     template<typename VST>
     void traverse( VST&);
