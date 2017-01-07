@@ -303,7 +303,54 @@ void List<T>::reverse_a()
 }
 
 
+//  前驱后继 颠倒。
+template <typename T>
+void List<T>::reverse_b()
+{
+    if (_size < 2) return;
+    for (auto p = header; p; p = p->pred) {
+        std::swap(p->pred, p->succ);
+    }
+    std::swap(header, tailer);
+}
 
+
+template <typename T>
+void List<T>::reverse_c()
+{
+    if (_size < 2) return;
+    auto p = header, q = p->succ;
+    // 该循环 让p 的前驱后继都指向q  成为了单向链表--
+    // 前驱后指
+    for (; p != tailer; p = q, q = p->succ) {
+        p->pred = q;
+    }
+    tailer->pred = nullptr;
+    
+    //  后继前指
+    for (p = header, q = p->pred; q != header; p = q, q = p->pred) {
+        q->succ = p;
+    }
+    header->succ = nullptr;
+    std::swap(header, tailer);
+}
+
+template <typename T>
+void List<T>::traverse(void (*visit)( T &))
+{
+    for (auto p = first(); p != tailer; p = p->succ) {
+        visit(p->data);
+    }
+}
+
+template <typename T>
+template<typename VST>
+void List<T>::traverse( VST& visit)
+{
+    for (auto p = first(); p != tailer; p = p->succ) {
+        visit(p->data);
+    }
+}
 
 
 
