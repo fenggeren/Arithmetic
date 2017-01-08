@@ -43,6 +43,7 @@
 		2836DA7F1E227630009C0262 /* Queue.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Queue.hpp; sourceTree = "<group>"; };
 		2836DA871E228508009C0262 /* BinNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BinNode.cpp; sourceTree = "<group>"; };
 		2836DA881E228508009C0262 /* BinNode.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BinNode.hpp; sourceTree = "<group>"; };
+		2836DA8A1E228BEE009C0262 /* Binnode_macro_BASIC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Binnode_macro_BASIC.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +137,7 @@
 			children = (
 				2836DA871E228508009C0262 /* BinNode.cpp */,
 				2836DA881E228508009C0262 /* BinNode.hpp */,
+				2836DA8A1E228BEE009C0262 /* Binnode_macro_BASIC.h */,
 			);
 			name = BinTree;
 			sourceTree = "<group>";
