@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		1F5BFF2B1E1CB6AC00D084BC /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1F5BFF2A1E1CB6AC00D084BC /* main.cpp */; };
 		1F5BFF361E1CB75400D084BC /* Vector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1F5BFF341E1CB75400D084BC /* Vector.cpp */; };
+		2809D3E01E1FCCD500140797 /* List.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2809D3DE1E1FCCD500140797 /* List.cpp */; };
+		2809D3E31E22596500140797 /* Stack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2809D3E11E22596500140797 /* Stack.cpp */; };
+		2836DA7D1E226C11009C0262 /* Utils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2836DA7B1E226C11009C0262 /* Utils.cpp */; };
+		2836DA801E227630009C0262 /* Queue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2836DA7E1E227630009C0262 /* Queue.cpp */; };
+		2836DA891E228508009C0262 /* BinNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2836DA871E228508009C0262 /* BinNode.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +33,16 @@
 		1F5BFF2A1E1CB6AC00D084BC /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		1F5BFF341E1CB75400D084BC /* Vector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Vector.cpp; sourceTree = "<group>"; };
 		1F5BFF351E1CB75400D084BC /* Vector.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Vector.hpp; sourceTree = "<group>"; };
+		2809D3DE1E1FCCD500140797 /* List.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = List.cpp; sourceTree = "<group>"; };
+		2809D3DF1E1FCCD500140797 /* List.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = List.hpp; sourceTree = "<group>"; };
+		2809D3E11E22596500140797 /* Stack.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Stack.cpp; sourceTree = "<group>"; };
+		2809D3E21E22596500140797 /* Stack.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Stack.hpp; sourceTree = "<group>"; };
+		2836DA7B1E226C11009C0262 /* Utils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Utils.cpp; sourceTree = "<group>"; };
+		2836DA7C1E226C11009C0262 /* Utils.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Utils.hpp; sourceTree = "<group>"; };
+		2836DA7E1E227630009C0262 /* Queue.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Queue.cpp; sourceTree = "<group>"; };
+		2836DA7F1E227630009C0262 /* Queue.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Queue.hpp; sourceTree = "<group>"; };
+		2836DA871E228508009C0262 /* BinNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BinNode.cpp; sourceTree = "<group>"; };
+		2836DA881E228508009C0262 /* BinNode.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BinNode.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,11 +75,69 @@
 		1F5BFF291E1CB6AC00D084BC /* Arithmetic_C++ */ = {
 			isa = PBXGroup;
 			children = (
+				2836DA861E2284F2009C0262 /* BinTree */,
+				2836DA851E2284E9009C0262 /* Shared */,
+				2836DA841E2284E0009C0262 /* Queue */,
+				2836DA831E2284D6009C0262 /* Stack */,
+				2836DA821E2284CE009C0262 /* List */,
+				2836DA811E2284B4009C0262 /* Vector */,
 				1F5BFF2A1E1CB6AC00D084BC /* main.cpp */,
+			);
+			path = "Arithmetic_C++";
+			sourceTree = "<group>";
+		};
+		2836DA811E2284B4009C0262 /* Vector */ = {
+			isa = PBXGroup;
+			children = (
 				1F5BFF341E1CB75400D084BC /* Vector.cpp */,
 				1F5BFF351E1CB75400D084BC /* Vector.hpp */,
 			);
-			path = "Arithmetic_C++";
+			name = Vector;
+			sourceTree = "<group>";
+		};
+		2836DA821E2284CE009C0262 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				2809D3DE1E1FCCD500140797 /* List.cpp */,
+				2809D3DF1E1FCCD500140797 /* List.hpp */,
+			);
+			name = List;
+			sourceTree = "<group>";
+		};
+		2836DA831E2284D6009C0262 /* Stack */ = {
+			isa = PBXGroup;
+			children = (
+				2809D3E11E22596500140797 /* Stack.cpp */,
+				2809D3E21E22596500140797 /* Stack.hpp */,
+			);
+			name = Stack;
+			sourceTree = "<group>";
+		};
+		2836DA841E2284E0009C0262 /* Queue */ = {
+			isa = PBXGroup;
+			children = (
+				2836DA7E1E227630009C0262 /* Queue.cpp */,
+				2836DA7F1E227630009C0262 /* Queue.hpp */,
+			);
+			name = Queue;
+			sourceTree = "<group>";
+		};
+		2836DA851E2284E9009C0262 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				2836DA7B1E226C11009C0262 /* Utils.cpp */,
+				2836DA7C1E226C11009C0262 /* Utils.hpp */,
+			);
+			name = Shared;
+			sourceTree = "<group>";
+		};
+		2836DA861E2284F2009C0262 /* BinTree */ = {
+			isa = PBXGroup;
+			children = (
+				2836DA871E228508009C0262 /* BinNode.cpp */,
+				2836DA881E228508009C0262 /* BinNode.hpp */,
+			);
+			name = BinTree;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -123,7 +196,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2809D3E31E22596500140797 /* Stack.cpp in Sources */,
+				2809D3E01E1FCCD500140797 /* List.cpp in Sources */,
 				1F5BFF361E1CB75400D084BC /* Vector.cpp in Sources */,
+				2836DA801E227630009C0262 /* Queue.cpp in Sources */,
+				2836DA7D1E226C11009C0262 /* Utils.cpp in Sources */,
+				2836DA891E228508009C0262 /* BinNode.cpp in Sources */,
 				1F5BFF2B1E1CB6AC00D084BC /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
