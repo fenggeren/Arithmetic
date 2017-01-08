@@ -13,7 +13,8 @@ typedef int Rank;
 #define DEFAULT_CAPACITY 3
 
 template <typename T>
-class Vector {
+class Vector
+{
 protected:
     Rank _size; int _capacity; T* _elem;
     

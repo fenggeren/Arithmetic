@@ -18,7 +18,8 @@ typedef int Rank;
 template <typename T> struct ListNode
 {
     T data;
-    ListNodePosi(T) pred, succ;
+    ListNodePosi(T) pred;
+    ListNodePosi(T) succ;
     
     ListNode(){}
     ListNode( T e, ListNodePosi(T) p = nullptr, ListNodePosi(T) s = nullptr):

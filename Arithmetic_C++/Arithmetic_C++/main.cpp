@@ -9,23 +9,51 @@
 #include <iostream>
 #include <ios>
 #include "Fibonacci.hpp"
+#include "Stack.hpp"
 
-int getInt(int a, int b)
+
+template<typename T>
+class A
 {
-    static int i = 0;
-    std::cout << "--------" << i++ << "-------" << std::endl;
-    return a + b;
-}
+public:
+    void aaa(T& e) {
+        aaa(e, e);
+    }
+    void aaa(T& a, T& b) {
+//        std::cout << "aa1" << std::endl;
+        std::cout << a << "     " << b << std::endl;
+    }
+};
+
+template<typename T>
+class B : public A<T>
+{
+public:
+    void bbb(T& e) { this->aaa(e); }
+};
+
 
 int main(int argc, const char * argv[]) {
-    // insert code here...
+
+//    Vector<int> vec;
+    int aa[] = {32, 321, 432, 53};
+////    vec.insert(0, aa[1]);
+//    vec.insert(aa[3]);
     
-//    Fib fib(100);
-//    std::cout << fib.get() << std::endl;
+//    Stack_Vector<int> ss;
+//    ss.push(123);
+//    ss.push(109);
+//    ss.pop();
+//    ss.top();
     
-    for (int i = 0; i < getInt(10, 20); ++i) {
-        ;
-    }
+    List<int> list;
+    list.insertAtFirst( aa[1]);
+    
+    
+    
+    int ia = 31234;
+    B<int> b;
+    b.bbb(ia);
     
     return 0;
 }
