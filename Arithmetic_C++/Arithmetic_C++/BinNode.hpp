@@ -15,6 +15,7 @@
 #define stature(p) ((p) ? (p)->height : -1)  // 节点高度
 typedef enum { RB_RED, RB_BLACK } RBColor; // 节点颜色
 
+ 
 template <typename T>
 struct BinNode
 {
@@ -52,6 +53,6 @@ struct BinNode
     BinNodePosi(T) zag(); // 逆时针旋转
 };
 
-//#include "BinNode_Implemention.hpp"
+#include "BinNode_Implemention.hpp"
 
 #endif /* BinNode_hpp */

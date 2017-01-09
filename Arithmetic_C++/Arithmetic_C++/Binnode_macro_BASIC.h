@@ -10,7 +10,7 @@
 #define Binnode_macro_BASIC_h
 
 
-#define IsRoot(x) ( !((x)->parent))
+#define IsRoot(x) ( !((x).parent))
 #define IsLChild(x) ( !IsRoot(x) && ((x).parent->lc == &(x)))
 #define IsRChild(x) (!IsRoot(x) && (&(x) == (x).parent->rc))
 #define HasParent(x) (!IsRoot(x))
