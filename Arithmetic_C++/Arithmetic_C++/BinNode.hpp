@@ -52,6 +52,6 @@ struct BinNode
     BinNodePosi(T) zag(); // 逆时针旋转
 };
 
-
+//#include "BinNode_Implemention.hpp"
 
 #endif /* BinNode_hpp */

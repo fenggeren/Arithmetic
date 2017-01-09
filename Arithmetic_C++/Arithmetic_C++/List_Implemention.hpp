@@ -6,7 +6,6 @@
 //  Copyright © 2017年 HuanaoGroup. All rights reserved.
 //
 
-#include "List.hpp"
 #include <stdlib.h>
 #include <ios>
 

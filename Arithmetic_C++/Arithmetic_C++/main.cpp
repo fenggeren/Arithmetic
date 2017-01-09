@@ -11,7 +11,6 @@
 #include "Fibonacci.hpp"
 #include "Stack.hpp"
 
-
 template<typename T>
 class A
 {
@@ -34,26 +33,14 @@ public:
 
 
 int main(int argc, const char * argv[]) {
-
-//    Vector<int> vec;
-    int aa[] = {32, 321, 432, 53};
-////    vec.insert(0, aa[1]);
-//    vec.insert(aa[3]);
+ 
     
-//    Stack_Vector<int> ss;
-//    ss.push(123);
-//    ss.push(109);
-//    ss.pop();
-//    ss.top();
+    Stack_Vector<int> ss;
+    ss.push(123);
+    ss.push(109);
+    ss.pop();
+    ss.top();
     
-    List<int> list;
-    list.insertAtFirst( aa[1]);
-    
-    
-    
-    int ia = 31234;
-    B<int> b;
-    b.bbb(ia);
     
     return 0;
 }

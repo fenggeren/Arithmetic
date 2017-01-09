@@ -6,7 +6,8 @@
 //  Copyright © 2017年 HuanaoGroup. All rights reserved.
 //
 
-#include "Vector.hpp"
+
+
 #include <ios>
 #include <stdlib.h>
 #include "Fibonacci.hpp"
@@ -27,7 +28,9 @@ void Vector<T>::expand()
     if (_size >= _capacity) {
         T *oldEle = _elem;
         _elem = new T[_capacity <<= 1];
-        for (Rank i = 0; i < _size; _elem[i++] = oldEle[i]);
+        for (Rank i = 0; i < _size; i++) {
+            _elem[i] = oldEle[i];
+        }
         delete [] oldEle;
     }
 }

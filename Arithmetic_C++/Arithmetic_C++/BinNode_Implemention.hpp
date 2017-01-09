@@ -5,8 +5,7 @@
 //  Created by fenggeren on 2017/1/8.
 //  Copyright © 2017年 HuanaoGroup. All rights reserved.
 //
-
-#include "BinNode.hpp"
+ 
 #include "Binnode_macro_BASIC.h"
 
 template <typename T>
@@ -43,8 +42,6 @@ BinNodePosi(T) BinNode<T>::succ()
     }
     return s;
 }
-
-
 
 
 

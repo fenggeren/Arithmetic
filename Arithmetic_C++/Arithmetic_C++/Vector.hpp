@@ -5,6 +5,7 @@
 //  Created by HuanaoGroup on 17/1/4.
 //  Copyright © 2017年 HuanaoGroup. All rights reserved.
 //
+#pragma once
 
 #ifndef Vector_hpp
 #define Vector_hpp
@@ -92,6 +93,8 @@ public:
     void traverse( void(*) (T&)); // 使用函数指针，只读或局部性修改
     template<typename VST> void traverse(VST& ); // 使用函数对象，可全局修改
 };
+
+#include "Vector_Implemention.hpp"
 
 #endif /* Vector_hpp */
 
