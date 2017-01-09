@@ -11,6 +11,7 @@
 		1F5BFF361E1CB75400D084BC /* Vector_Implemention.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 1F5BFF341E1CB75400D084BC /* Vector_Implemention.hpp */; };
 		2809D3E01E1FCCD500140797 /* List_Implemention.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 2809D3DE1E1FCCD500140797 /* List_Implemention.hpp */; };
 		2836DA891E228508009C0262 /* BinNode_Implemention.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 2836DA871E228508009C0262 /* BinNode_Implemention.hpp */; };
+		28FE81A31E23DEA6002B1B53 /* BinTree_Implemention.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 28FE81A11E23DEA6002B1B53 /* BinTree_Implemention.hpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -38,6 +39,8 @@
 		2836DA871E228508009C0262 /* BinNode_Implemention.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BinNode_Implemention.hpp; sourceTree = "<group>"; };
 		2836DA881E228508009C0262 /* BinNode.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BinNode.hpp; sourceTree = "<group>"; };
 		2836DA8A1E228BEE009C0262 /* Binnode_macro_BASIC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Binnode_macro_BASIC.h; sourceTree = "<group>"; };
+		28FE81A11E23DEA6002B1B53 /* BinTree_Implemention.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BinTree_Implemention.hpp; sourceTree = "<group>"; };
+		28FE81A21E23DEA6002B1B53 /* BinTree.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BinTree.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +132,8 @@
 				2836DA871E228508009C0262 /* BinNode_Implemention.hpp */,
 				2836DA881E228508009C0262 /* BinNode.hpp */,
 				2836DA8A1E228BEE009C0262 /* Binnode_macro_BASIC.h */,
+				28FE81A11E23DEA6002B1B53 /* BinTree_Implemention.hpp */,
+				28FE81A21E23DEA6002B1B53 /* BinTree.hpp */,
 			);
 			name = BinTree;
 			sourceTree = "<group>";
@@ -193,6 +198,7 @@
 				1F5BFF361E1CB75400D084BC /* Vector_Implemention.hpp in Sources */,
 				2836DA891E228508009C0262 /* BinNode_Implemention.hpp in Sources */,
 				1F5BFF2B1E1CB6AC00D084BC /* main.cpp in Sources */,
+				28FE81A31E23DEA6002B1B53 /* BinTree_Implemention.hpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
