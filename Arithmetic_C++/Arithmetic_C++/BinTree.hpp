@@ -37,7 +37,7 @@ public:
     BinNodePosi(T) insertAsRC(BinNodePosi(T) x, BinTree<T>* &T);
 
     int remove(BinNodePosi(T) x); // 删除以位置x处节点为根的子树，返回该子树原先的规模
-    BinTree<T>* secede(BinNodePosi(T) x); // 将子树x从当前书中摘除，并将其转换为一个独立子树
+    BinTree<T>* secede(BinNodePosi(T) x); // 将子树x从当前树中摘除，并将其转换为一个独立子树
 
     template <typename VST>
             void travLevel(VST& visit) { if (_root) _root->travLevel(visit); }
@@ -53,8 +53,8 @@ public:
     bool operator==(BinTree<T> const& t)
     { return _root && t._root && _root == t._root; }
 
-    void stretchToLPath();  // 借助zag旋转，转化为左向单链
-    void stretchToRPath(); // 借助zig旋转，转化为右向单链
+    void stretchToLPath() { stretchByZag(_root); }  // 借助zag旋转，转化为左向单链
+    void stretchToRPath() { stretchByZig(_root); } // 借助zig旋转，转化为右向单链
 };
 
 

@@ -12,6 +12,7 @@
 		2809D3E01E1FCCD500140797 /* List_Implemention.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 2809D3DE1E1FCCD500140797 /* List_Implemention.hpp */; };
 		2836DA891E228508009C0262 /* BinNode_Implemention.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 2836DA871E228508009C0262 /* BinNode_Implemention.hpp */; };
 		28FE81A31E23DEA6002B1B53 /* BinTree_Implemention.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 28FE81A11E23DEA6002B1B53 /* BinTree_Implemention.hpp */; };
+		28FE81AC1E252401002B1B53 /* BST_Implementation.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 28FE81AA1E252401002B1B53 /* BST_Implementation.hpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -42,6 +43,9 @@
 		2836DA8A1E228BEE009C0262 /* Binnode_macro_BASIC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Binnode_macro_BASIC.h; sourceTree = "<group>"; };
 		28FE81A11E23DEA6002B1B53 /* BinTree_Implemention.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BinTree_Implemention.hpp; sourceTree = "<group>"; };
 		28FE81A21E23DEA6002B1B53 /* BinTree.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BinTree.hpp; sourceTree = "<group>"; };
+		28FE81A41E2521C0002B1B53 /* BinNode_macro_RedBlack.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BinNode_macro_RedBlack.hpp; sourceTree = "<group>"; };
+		28FE81AA1E252401002B1B53 /* BST_Implementation.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BST_Implementation.hpp; sourceTree = "<group>"; };
+		28FE81AB1E252401002B1B53 /* BST.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BST.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +78,7 @@
 		1F5BFF291E1CB6AC00D084BC /* Arithmetic_C++ */ = {
 			isa = PBXGroup;
 			children = (
+				28FE81A91E2523F7002B1B53 /* BST */,
 				2836DA861E2284F2009C0262 /* BinTree */,
 				2836DA851E2284E9009C0262 /* Shared */,
 				2836DA841E2284E0009C0262 /* Queue */,
@@ -136,8 +141,18 @@
 				2836DA8A1E228BEE009C0262 /* Binnode_macro_BASIC.h */,
 				28FE81A11E23DEA6002B1B53 /* BinTree_Implemention.hpp */,
 				28FE81A21E23DEA6002B1B53 /* BinTree.hpp */,
+				28FE81A41E2521C0002B1B53 /* BinNode_macro_RedBlack.hpp */,
 			);
 			name = BinTree;
+			sourceTree = "<group>";
+		};
+		28FE81A91E2523F7002B1B53 /* BST */ = {
+			isa = PBXGroup;
+			children = (
+				28FE81AA1E252401002B1B53 /* BST_Implementation.hpp */,
+				28FE81AB1E252401002B1B53 /* BST.hpp */,
+			);
+			name = BST;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,6 +214,7 @@
 				2809D3E01E1FCCD500140797 /* List_Implemention.hpp in Sources */,
 				1F5BFF361E1CB75400D084BC /* Vector_Implemention.hpp in Sources */,
 				2836DA891E228508009C0262 /* BinNode_Implemention.hpp in Sources */,
+				28FE81AC1E252401002B1B53 /* BST_Implementation.hpp in Sources */,
 				1F5BFF2B1E1CB6AC00D084BC /* main.cpp in Sources */,
 				28FE81A31E23DEA6002B1B53 /* BinTree_Implemention.hpp in Sources */,
 			);
