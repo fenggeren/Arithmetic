@@ -58,4 +58,7 @@ public:
 };
 
 
+#include "BinTree_Implemention.hpp"
+
+
 #endif /* BinTree_hpp */

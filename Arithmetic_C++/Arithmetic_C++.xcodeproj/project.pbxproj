@@ -31,6 +31,7 @@
 		1F5BFF2A1E1CB6AC00D084BC /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		1F5BFF341E1CB75400D084BC /* Vector_Implemention.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Vector_Implemention.hpp; sourceTree = "<group>"; };
 		1F5BFF351E1CB75400D084BC /* Vector.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Vector.hpp; sourceTree = "<group>"; };
+		1FC87FDE1E24DC46006BD030 /* Release.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Release.hpp; sourceTree = "<group>"; };
 		2809D3DE1E1FCCD500140797 /* List_Implemention.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = List_Implemention.hpp; sourceTree = "<group>"; };
 		2809D3DF1E1FCCD500140797 /* List.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = List.hpp; sourceTree = "<group>"; };
 		2809D3E21E22596500140797 /* Stack.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Stack.hpp; sourceTree = "<group>"; };
@@ -122,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				2836DA7C1E226C11009C0262 /* Utils.hpp */,
+				1FC87FDE1E24DC46006BD030 /* Release.hpp */,
 			);
 			name = Shared;
 			sourceTree = "<group>";
