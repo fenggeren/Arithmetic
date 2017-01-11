@@ -73,15 +73,6 @@ BinNodePosi(T) BinTree<T>::insertAsRC(BinNode<T> *x, BinTree<T> *&T)
 }
 
 template <typename T>
-int BinTree<T>::remove(BinNode<T> *x) {
-    FromParentTo(*x) = nullptr;
-    updateHeightAbove(x->parent);
-    int n = removeAt(x); // ==> x.size()
-    _size -= n;
-    return n;
-}
-
-template <typename T>
 static int removeAt(BinNode<T>* x)
 {
     if (!x) return 0;
@@ -91,6 +82,17 @@ static int removeAt(BinNode<T>* x)
     release(x->data); release(x);
     return n;
 }
+
+template <typename T>
+int BinTree<T>::remove(BinNode<T> *x) {
+    FromParentTo(*x) = nullptr;
+    updateHeightAbove(x->parent);
+    int n = removeAt(x); // ==> x.size()
+    _size -= n;
+    return n;
+}
+
+
 
 template <typename T>
 BinTree<T>* BinTree<T>::secede(BinNode<T> *x) {

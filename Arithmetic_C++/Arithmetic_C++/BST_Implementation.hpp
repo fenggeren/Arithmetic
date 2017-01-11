@@ -59,3 +59,34 @@ BinNodePosi(T)& BST<T>::search(const T &e) {
     return v;
 }
 
+template <typename T>
+BinNodePosi(T) BST<T>::insert(const T &e) {
+    auto node = search(e);
+    if (node) return node;
+    if (_hot->data < e) node = insertAsRC(_hot, e);
+    else node = insertAsLC(_hot, e);
+
+    return node;
+}
+
+template <typename T>
+bool BST<T>::remove(const T &e) {
+    auto node = search(e);
+    if (!node) return false;
+
+    if (HasChild(*node)) {
+       if (HasRChild(*node)) {
+            auto succ = node->succ();
+            std::swap(node->data, succ->data);
+            node = succ;
+        } else {
+           node->lc->parent = node->parent;
+           IsLChild(*node) ? node->parent->lc = node->lc : node->parent->rc = node->lc;
+        }
+    }
+
+    release(node->data); release(node);
+    _size--;
+    updateHeightAbove(node->parent);
+    return true;
+}
