@@ -74,19 +74,22 @@ bool BST<T>::remove(const T &e) {
     auto node = search(e);
     if (!node) return false;
 
-    if (HasChild(*node)) {
-       if (HasRChild(*node)) {
-            auto succ = node->succ();
-            std::swap(node->data, succ->data);
-            node = succ;
-        } else {
-           node->lc->parent = node->parent;
-           IsLChild(*node) ? node->parent->lc = node->lc : node->parent->rc = node->lc;
-        }
+    auto r = node;
+    BinNodePosi(T) succ = nullptr;
+    if (!HasLChild((*node))) {
+       succ = node = node->rc;
+    } else if (!HasRChild(*node)) {
+        succ = node = node->lc;
+    } else {
+        r = node->succ();
+        std::swap(node->data, r->data);
+        // 判断下  node的后继是否是node的右孩子节点
+        (r->parent == node ? r->parent->rc : r->parent->lc) = succ = r->rc;
     }
-
-    release(node->data); release(node);
+    _hot = r->parent;
+    if (succ) succ->parent = _hot;
+    release(r->data); release(r);
     _size--;
-    updateHeightAbove(node->parent);
+    updateHeightAbove(r->parent);
     return true;
 }
