@@ -27,24 +27,32 @@ BinNodePosi(T) BST<T>::connect34(BinNode<T> * a, BinNode<T> * b, BinNode<T> * c,
     b->lc = a; b->rc = b;
     a->parent = b; c->parent = b;
     updateHeight(b);
+    return b;
 }
 
 template <typename T>
 BinNodePosi(T) BST<T>::rotateAt(BinNode<T> *v) {
     auto p = v->parent; auto g = v->parent;
+    BinNodePosi(T) top = nullptr;
     if (IsLChild(*p)) {
         if (IsLChild(*v)) {
-            connect34(v, p, g, v->lc, v->rc, p->rc, g->rc);
+            p->parent = g->parent;
+            top = connect34(v, p, g, v->lc, v->rc, p->rc, g->rc);
         } else {
-            connect34(p, v, g, p->lc, v->lc, v->rc, g->rc);
+            v->parent = g->parent;
+            top =  connect34(p, v, g, p->lc, v->lc, v->rc, g->rc);
         }
     } else {
         if (IsRChild(*v)) {
-            connect34(g, p, v, g->lc, p->lc, v->lc, v->rc);
+            p->parent = g->parent;
+            top =  connect34(g, p, v, g->lc, p->lc, v->lc, v->rc);
         } else {
-            connect34(g, v, p, g->lc, v->lc, v->rc, p->rc);
+            v->parent = g->parent;
+            top =  connect34(g, v, p, g->lc, v->lc, v->rc, p->rc);
         }
     }
+    FromParentTo(*g) = top; // 34 旋转平衡后 top节点 和其父节点指针 互指重制
+    return top;
 }
 
 template <typename T>

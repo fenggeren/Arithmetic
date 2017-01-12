@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1F5BFF2B1E1CB6AC00D084BC /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1F5BFF2A1E1CB6AC00D084BC /* main.cpp */; };
 		1F5BFF361E1CB75400D084BC /* Vector_Implemention.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 1F5BFF341E1CB75400D084BC /* Vector_Implemention.hpp */; };
+		1FD0F8231E2759BB00062A4F /* AVL_Implementation.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 1FD0F8211E2759BB00062A4F /* AVL_Implementation.hpp */; };
 		2809D3E01E1FCCD500140797 /* List_Implemention.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 2809D3DE1E1FCCD500140797 /* List_Implemention.hpp */; };
 		2836DA891E228508009C0262 /* BinNode_Implemention.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 2836DA871E228508009C0262 /* BinNode_Implemention.hpp */; };
 		28FE81A31E23DEA6002B1B53 /* BinTree_Implemention.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 28FE81A11E23DEA6002B1B53 /* BinTree_Implemention.hpp */; };
@@ -33,6 +34,10 @@
 		1F5BFF341E1CB75400D084BC /* Vector_Implemention.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Vector_Implemention.hpp; sourceTree = "<group>"; };
 		1F5BFF351E1CB75400D084BC /* Vector.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Vector.hpp; sourceTree = "<group>"; };
 		1FC87FDE1E24DC46006BD030 /* Release.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Release.hpp; sourceTree = "<group>"; };
+		1FD0F81F1E27585900062A4F /* BinNode_macro_avl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BinNode_macro_avl.h; sourceTree = "<group>"; };
+		1FD0F8211E2759BB00062A4F /* AVL_Implementation.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AVL_Implementation.hpp; sourceTree = "<group>"; };
+		1FD0F8221E2759BB00062A4F /* AVL.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AVL.hpp; sourceTree = "<group>"; };
+		1FD0F8241E275A7400062A4F /* avl_macro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = avl_macro.h; sourceTree = "<group>"; };
 		2809D3DE1E1FCCD500140797 /* List_Implemention.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = List_Implemention.hpp; sourceTree = "<group>"; };
 		2809D3DF1E1FCCD500140797 /* List.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = List.hpp; sourceTree = "<group>"; };
 		2809D3E21E22596500140797 /* Stack.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Stack.hpp; sourceTree = "<group>"; };
@@ -78,6 +83,7 @@
 		1F5BFF291E1CB6AC00D084BC /* Arithmetic_C++ */ = {
 			isa = PBXGroup;
 			children = (
+				1FD0F8201E2759AA00062A4F /* AVL */,
 				28FE81A91E2523F7002B1B53 /* BST */,
 				2836DA861E2284F2009C0262 /* BinTree */,
 				2836DA851E2284E9009C0262 /* Shared */,
@@ -88,6 +94,16 @@
 				1F5BFF2A1E1CB6AC00D084BC /* main.cpp */,
 			);
 			path = "Arithmetic_C++";
+			sourceTree = "<group>";
+		};
+		1FD0F8201E2759AA00062A4F /* AVL */ = {
+			isa = PBXGroup;
+			children = (
+				1FD0F8211E2759BB00062A4F /* AVL_Implementation.hpp */,
+				1FD0F8221E2759BB00062A4F /* AVL.hpp */,
+				1FD0F8241E275A7400062A4F /* avl_macro.h */,
+			);
+			name = AVL;
 			sourceTree = "<group>";
 		};
 		2836DA811E2284B4009C0262 /* Vector */ = {
@@ -142,6 +158,7 @@
 				28FE81A11E23DEA6002B1B53 /* BinTree_Implemention.hpp */,
 				28FE81A21E23DEA6002B1B53 /* BinTree.hpp */,
 				28FE81A41E2521C0002B1B53 /* BinNode_macro_RedBlack.hpp */,
+				1FD0F81F1E27585900062A4F /* BinNode_macro_avl.h */,
 			);
 			name = BinTree;
 			sourceTree = "<group>";
@@ -215,6 +232,7 @@
 				1F5BFF361E1CB75400D084BC /* Vector_Implemention.hpp in Sources */,
 				2836DA891E228508009C0262 /* BinNode_Implemention.hpp in Sources */,
 				28FE81AC1E252401002B1B53 /* BST_Implementation.hpp in Sources */,
+				1FD0F8231E2759BB00062A4F /* AVL_Implementation.hpp in Sources */,
 				1F5BFF2B1E1CB6AC00D084BC /* main.cpp in Sources */,
 				28FE81A31E23DEA6002B1B53 /* BinTree_Implemention.hpp in Sources */,
 			);
