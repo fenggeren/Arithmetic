@@ -55,6 +55,7 @@ BinNodePosi(T) BST<T>::rotateAt(BinNode<T> *v) {
     return top;
 }
 
+
 template <typename T>
 BinNodePosi(T)& BST<T>::search(const T &e) {
     auto v = _root;

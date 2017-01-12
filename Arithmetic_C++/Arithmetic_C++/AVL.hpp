@@ -16,8 +16,8 @@ template <typename T>
 class AVL : public BST<T>
 {
 public:
-    virtual  BinNodePosi(T) insert (const T& e);
-    virtual bool remove( const T& e);
+    BinNodePosi(T) insert (const T& e);
+    bool remove( const T& e);
 };
 
 

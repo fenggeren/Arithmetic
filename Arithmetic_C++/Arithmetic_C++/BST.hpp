@@ -15,6 +15,7 @@
 template <typename T>
 class BST : public BinTree<T>
 {
+
 protected:
     BinNodePosi(T) _hot;    //命中节点的父亲
     BinNodePosi(T) connect34( // 按照 "3+4" 结构， 链接3各节点及四颗子树, 无论怎么变换垂直位置永远不变
