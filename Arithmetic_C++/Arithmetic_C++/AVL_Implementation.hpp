@@ -18,7 +18,7 @@ BinNodePosi(T) AVL<T>::insert(const T &e) {
     for (auto g = _hot; g; g = g->parent) {
         // 不平衡 通过3+4 旋转 平衡 只一次就ok了，  本质上是让v上移一格， g的最低的叶节点下移一格
         // 通过g 计算出 p v   通过3+4 旋转平衡
-        if (!AvlBalance(g)) {
+        if (!AvlBalance(*g)) {
             rotateAt(tallerChild(tallerChild(g)));
             break;
         } else {  // 如果是平衡的  更新下高度， 当_hot节点只有插入的v这一个节点时，高度也会变化
@@ -31,10 +31,11 @@ template <typename T>
 bool AVL<T>::remove(const T &e) {
     if (!BST<T>::remove(e)) return false;
     for (auto g = _hot; g; g = g->parent) {
-        if (!AvlBalance(*g)) {
+        if (!AvlBalance(*g)) {   // 删除操作 会导致其parent's parnet's.....节点 失衡
             g = rotateAt(tallerChild(tallerChild(g)));
         }
         updateHeight(g);
     }
     return true;
 }
+
