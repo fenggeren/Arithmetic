@@ -10,6 +10,7 @@
 #define BTree_hpp
 
 #include "BTNode.hpp"
+#include "Release.hpp"
 
 template <typename T>
 class BTree
