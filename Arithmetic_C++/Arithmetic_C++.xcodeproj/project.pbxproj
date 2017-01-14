@@ -16,6 +16,7 @@
 		2836DA891E228508009C0262 /* BinNode_Implemention.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 2836DA871E228508009C0262 /* BinNode_Implemention.hpp */; };
 		28FE81A31E23DEA6002B1B53 /* BinTree_Implemention.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 28FE81A11E23DEA6002B1B53 /* BinTree_Implemention.hpp */; };
 		28FE81AC1E252401002B1B53 /* BST_Implementation.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 28FE81AA1E252401002B1B53 /* BST_Implementation.hpp */; };
+		28FE81B41E2A2AB2002B1B53 /* Splay_Implementation.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 28FE81B21E2A2AB2002B1B53 /* Splay_Implementation.hpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -58,6 +59,9 @@
 		28FE81A41E2521C0002B1B53 /* BinNode_macro_RedBlack.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BinNode_macro_RedBlack.hpp; sourceTree = "<group>"; };
 		28FE81AA1E252401002B1B53 /* BST_Implementation.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BST_Implementation.hpp; sourceTree = "<group>"; };
 		28FE81AB1E252401002B1B53 /* BST.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BST.hpp; sourceTree = "<group>"; };
+		28FE81B21E2A2AB2002B1B53 /* Splay_Implementation.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Splay_Implementation.hpp; sourceTree = "<group>"; };
+		28FE81B31E2A2AB2002B1B53 /* Splay.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Splay.hpp; sourceTree = "<group>"; };
+		28FE81B51E2A2AEC002B1B53 /* Rand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rand.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +94,7 @@
 		1F5BFF291E1CB6AC00D084BC /* Arithmetic_C++ */ = {
 			isa = PBXGroup;
 			children = (
+				28FE81B11E2A2AA7002B1B53 /* Splay */,
 				1FB6320D1E28CBE800C4F386 /* Redblack */,
 				1FB631FD1E2773E000C4F386 /* BTree */,
 				1FD0F8201E2759AA00062A4F /* AVL */,
@@ -173,6 +178,7 @@
 			children = (
 				2836DA7C1E226C11009C0262 /* Utils.hpp */,
 				1FC87FDE1E24DC46006BD030 /* Release.hpp */,
+				28FE81B51E2A2AEC002B1B53 /* Rand.h */,
 			);
 			name = Shared;
 			sourceTree = "<group>";
@@ -198,6 +204,15 @@
 				28FE81AB1E252401002B1B53 /* BST.hpp */,
 			);
 			name = BST;
+			sourceTree = "<group>";
+		};
+		28FE81B11E2A2AA7002B1B53 /* Splay */ = {
+			isa = PBXGroup;
+			children = (
+				28FE81B21E2A2AB2002B1B53 /* Splay_Implementation.hpp */,
+				28FE81B31E2A2AB2002B1B53 /* Splay.hpp */,
+			);
+			name = Splay;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -263,6 +278,7 @@
 				1FB632001E2773F100C4F386 /* BTree_Implementation.hpp in Sources */,
 				1FD0F8231E2759BB00062A4F /* AVL_Implementation.hpp in Sources */,
 				1F5BFF2B1E1CB6AC00D084BC /* main.cpp in Sources */,
+				28FE81B41E2A2AB2002B1B53 /* Splay_Implementation.hpp in Sources */,
 				1FB632101E28CC0100C4F386 /* Redblack_Implementation.hpp in Sources */,
 				28FE81A31E23DEA6002B1B53 /* BinTree_Implemention.hpp in Sources */,
 			);

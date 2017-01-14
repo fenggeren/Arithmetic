@@ -55,6 +55,19 @@ BinNodePosi(T) BST<T>::rotateAt(BinNode<T> *v) {
     return top;
 }
 
+#define EQUAL(e, v) (!(v) || (e) == (v)->data)
+template <typename T>
+static BinNodePosi(T) & searchIn(BinNodePosi(T) & v, const T& e, BinNodePosi(T) & hot)
+{
+    if (EQUAL(e, v)) return v;
+    hot = v;
+    while (true) {
+        auto & c = (e < hot->data) ? hot->lc : hot->rc;
+        if (EQUAL(e, c)) return c;
+        hot = c;
+    }
+}
+
 
 template <typename T>
 BinNodePosi(T)& BST<T>::search(const T &e) {
