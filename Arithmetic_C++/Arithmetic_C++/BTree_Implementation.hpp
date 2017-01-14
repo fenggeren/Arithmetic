@@ -6,8 +6,9 @@
 //  Copyright © 2017年 HuanaoGroup. All rights reserved.
 //
 
+#include <tkDecls.h>
 #include "BTree.hpp"
-
+#include "Release.hpp"
 /**
  * [0, s) (s, _order)  s节点上移,   'u' 接管(s, _order) key & child
  * s 上移到v的父节点上
@@ -44,7 +45,84 @@ void BTree<T>::solveOverflow(BTNode<T> *v) {
 template <typename T>
 void BTree<T>::solveUnderflow(BTNode<T> *v)
 {
+    if (v->child.size() >= ((_order + 1 ) >> 1)) return;
+    auto p = v->parent;
+    if (!p) { // 根节点比较特殊 允许 小于(_order + 1) * 0.5 个关键码
+        if (!v->key.size() && v->child[0]) { // v 只有一个孩子 切没有关键码 这就是_root的特性
+            _root = v->child[0]; _root->parent = nullptr;
+            v->child[0] = nullptr; release(v);
+        } // 整树 高度降低一层
+        return;
+    }
 
+    // 确定 v 是p的第r个孩子   此时v可能不含关键码， 故不能通过关键码查找、
+    Rank r = 0; while (p->child[r] != v) r++;
+
+    // 1.向做兄弟借关键码
+    if (0 < r) {
+        auto ls = p->child[r - 1]; // 左兄弟必存在
+        if ( (_order + 1) / 2 < ls->child.size()) { // 左兄弟 有足够的孩子(>=1)
+            v->key.insert(0, p->key[r - 1]);
+            p->key[r - 1] = ls->key.remove(ls->key.size() - 1); //ls 最大关键码转入p
+            v->child.insert(0, ls->child.remove(ls->child.size() - 1));
+            if (v->child[0]) v->child[0]->parent = v;
+            return;
+        }
+    }
+    // 左兄弟 为空 或者 没有超出的关键码
+    // 向有兄弟借关键码
+    if (p->child.size() - 1 > r) {  // v的右兄弟必存在
+        auto rs = p->child[r + 1];
+        if ((_order + 1) / 2 < rs->child.size()) {
+            v->key.insert(v->key.size(), p->key[r]);
+            p->key[r] = rs->key.remove(0);
+            v->child.insert(v->child.size(), rs->child.remove(0));
+            if (v->child[v->child.size() - 1])
+                v->child[v->child.size() - 1]->parent = v;
+            return;
+        }
+    }
+
+    // 左右节点都不能借  只能父节点 下降 和v和其左/右节点组合成新的节点
+    // 需要父节点下降 合并的情况 需要递归向上的解决下溢出
+    if (0 < r) { // 和左兄弟合并
+        auto ls = p->child[r - 1];
+        ls->key.insert(ls->child.size(), p->key.remove(r - 1));
+        p->child.remove(r);  // p 移除掉 v孩子.
+        ls->child.insert(ls->child.size(), v->child.remove(0));
+        if (ls->child[ls->child.size() - 1]) {
+            ls->child[ls->child.size() - 1]->parent = ls;
+        }
+
+        while (v->key.size()) { // 将v剩余的所有key、child 添加到ls上
+            ls->key.insert(ls->key.size(), v->key.remove(0));
+            ls->child.insert(ls->child.size(), v->child.remove(0));
+            if (ls->child[ls->child.size() - 1]) {
+                ls->child[ls->child.size() - 1] = ls;
+            }
+        }
+        release(v); // 释放 v节点
+    } else {  // 和右兄弟合并
+        auto rs = p->child[r + 1];
+        rs->key.insert(0, p->key.remove(r));
+        p->child.remove(r);
+        rs->child.insert(0, v->key.remove(v->key.size() - 1));
+        if (rs->child[0]) {
+            rs->child[0]->parent = rs;
+        }
+
+        while (!v->key.empty()) {
+            rs->key.insert(0, v->key.remove(v->key.size() - 1));
+            rs->child.insert(0, v->child.remove(v->child.size() - 1));
+            if (rs->child[0]) {
+                rs->child[0]->parent = rs;
+            }
+        }
+        release(v);
+    }
+
+    solveUnderflow(p);
+    return;;
 }
 
 
