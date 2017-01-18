@@ -17,6 +17,7 @@
 		28FE81A31E23DEA6002B1B53 /* BinTree_Implemention.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 28FE81A11E23DEA6002B1B53 /* BinTree_Implemention.hpp */; };
 		28FE81AC1E252401002B1B53 /* BST_Implementation.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 28FE81AA1E252401002B1B53 /* BST_Implementation.hpp */; };
 		28FE81B41E2A2AB2002B1B53 /* Splay_Implementation.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 28FE81B21E2A2AB2002B1B53 /* Splay_Implementation.hpp */; };
+		28FE81B91E2F97B1002B1B53 /* Graph_Implementation.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 28FE81B71E2F97B1002B1B53 /* Graph_Implementation.hpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -62,6 +63,9 @@
 		28FE81B21E2A2AB2002B1B53 /* Splay_Implementation.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Splay_Implementation.hpp; sourceTree = "<group>"; };
 		28FE81B31E2A2AB2002B1B53 /* Splay.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Splay.hpp; sourceTree = "<group>"; };
 		28FE81B51E2A2AEC002B1B53 /* Rand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rand.h; sourceTree = "<group>"; };
+		28FE81B71E2F97B1002B1B53 /* Graph_Implementation.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Graph_Implementation.hpp; sourceTree = "<group>"; };
+		28FE81B81E2F97B1002B1B53 /* Graph.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Graph.hpp; sourceTree = "<group>"; };
+		28FE81BA1E2F97DA002B1B53 /* GraphMatrix.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GraphMatrix.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +98,7 @@
 		1F5BFF291E1CB6AC00D084BC /* Arithmetic_C++ */ = {
 			isa = PBXGroup;
 			children = (
+				28FE81B61E2F96CD002B1B53 /* Graph */,
 				28FE81B11E2A2AA7002B1B53 /* Splay */,
 				1FB6320D1E28CBE800C4F386 /* Redblack */,
 				1FB631FD1E2773E000C4F386 /* BTree */,
@@ -215,6 +220,16 @@
 			name = Splay;
 			sourceTree = "<group>";
 		};
+		28FE81B61E2F96CD002B1B53 /* Graph */ = {
+			isa = PBXGroup;
+			children = (
+				28FE81B71E2F97B1002B1B53 /* Graph_Implementation.hpp */,
+				28FE81B81E2F97B1002B1B53 /* Graph.hpp */,
+				28FE81BA1E2F97DA002B1B53 /* GraphMatrix.hpp */,
+			);
+			name = Graph;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -271,6 +286,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28FE81B91E2F97B1002B1B53 /* Graph_Implementation.hpp in Sources */,
 				2809D3E01E1FCCD500140797 /* List_Implemention.hpp in Sources */,
 				1F5BFF361E1CB75400D084BC /* Vector_Implemention.hpp in Sources */,
 				2836DA891E228508009C0262 /* BinNode_Implemention.hpp in Sources */,
