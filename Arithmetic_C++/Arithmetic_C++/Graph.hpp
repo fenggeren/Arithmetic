@@ -19,13 +19,19 @@ template <typename Tv, typename Te> //
 class Graph {
 private:
     void reset() {
-
+        for (int i = 0; i < n; ++i) {
+            status(i) = UNDISCOVERED; dTime(i) = fTime(i) = -1;
+            parent(i) = -1; priority(i) = INT_MAX;
+            for (int j = 0; j < n; ++j) {
+                if (exists(i, j)) type(i, j) = UNDETERMINED;
+            }
+        }
     }
 
     void BFS ( int, int&); // 广度优先搜索算法
     void DFS ( int, int& ); // 深度优先搜索算法
-    void BCC (int, int& ); // 基于DFS的双联通分量分解算法
-    bool TSort(int, int&, Stack<Tv>* ); // 基于DFS的拓扑排序算法
+    void BCC (int, int& , Stack<Tv>& ); // 基于DFS的双联通分量分解算法
+    bool TSort(int, int&); // 基于DFS的拓扑排序算法
     template <typename PU> void PFS (int, PU ); // 优先级搜索框架
 
 public:
@@ -53,8 +59,8 @@ public:
     virtual int& weight( int, int ) = 0; //边v，u的权重
 
     // 算法
-    void bsf( int ); //广度优先搜索算法
-    void bfs (int ); //深度优先搜索算法
+    void bfs( int ); //广度优先搜索算法
+    void dfs (int ); //深度优先搜索算法
     void bcc (int ); //基于DFS的双联通分量分解算法
     Stack<Tv>* tSort(int); //基于DFS的拓扑排序算法
     void prim (int); //最小支撑树Prim算法
